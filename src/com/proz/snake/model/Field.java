@@ -2,45 +2,33 @@ package com.proz.snake.model;
 
 public class Field
 {
-    private FieldType type;
     private int x;
     private int y;
 
-
-    public Field()
-    {
-        type = FieldType.EMPTY;
-    }
-
-    public Field (int x, int y, FieldType type)
-    {
+    public Field (int x, int y) {
         this.x = x;
         this.y = y;
-        this.type = type;
-    }
-
-    public FieldType getType()
-    {
-        return type;
     }
 
     public int getX() {
         return x;
     }
 
+    public void setX(int x) {this.x = x;}
+
     public int getY() {
         return y;
     }
 
-    public void setType(FieldType type)
-    {
-        this.type = type;
+    public void setY(int y) { this.y = y; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Field other = (Field) o;
+        return (x == other.getX() && y == other.getY());
+
     }
-
-    public boolean isEqualPosition (Field other)
-    {
-        return (this.x == other.getX() && this.y == other.getY());
-    }
-
-
 }
