@@ -1,6 +1,5 @@
 package com.proz.snake.model;
 
-import com.proz.snake.controller.Game;
 import com.proz.snake.view.Menu;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -16,5 +15,5 @@ public class Main extends Application {
         primaryStage.setTitle("snake");
         primaryStage.setScene(new Menu(primaryStage).getScene());
         primaryStage.show();
-     }
+    }
 }

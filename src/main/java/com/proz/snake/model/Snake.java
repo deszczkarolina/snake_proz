@@ -7,7 +7,7 @@ public class Snake {
     private Field snakeHead;
 
     public Snake(int x, int y, int size) {
-        snakeBody = new LinkedList<Field>();
+        snakeBody = new LinkedList<>();
         for (int i = 0; i < size; i++) {
             snakeBody.add(new Field(x, y + i));
         }
@@ -45,7 +45,7 @@ public class Snake {
     }
 
     public LinkedList<Field> getSnakeBody() {
-        return snakeBody;
+        return new LinkedList<>(snakeBody);
     }
 
     public Field getSnakeHead() {
