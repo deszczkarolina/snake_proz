@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class GameOver {
 
-    private static final String STYLE = "-fx-font: 30 arial; -fx-base: #0eb2ee;";
+    private static final String STYLE = "-fx-font: 25 arial; -fx-base: #0eb2ee;";
     private Scene scene;
     private Stage stage;
     private Button restartBttn;
@@ -36,7 +36,7 @@ public class GameOver {
         vBox.setSpacing(50);
         vBox.setAlignment(Pos.CENTER);
         restartBttn.setStyle(STYLE);
-        vBox.setPadding(new Insets(100, 30, 100, 30));
+        vBox.setPadding(new Insets(100, 20, 100, 20));
         vBox.getChildren().addAll(looseMsg, restartBttn);
     }
 
