@@ -18,7 +18,7 @@ public class GameOver {
     private Stage stage;
     private Button restartBttn;
     private VBox vBox;
-    private Text looseMsg;
+    private Text loseMsg;
 
     public GameOver(Stage stage) {
         this.stage = stage;
@@ -26,8 +26,8 @@ public class GameOver {
         scene = new Scene(root);
         vBox = new VBox();
         root.setCenter(vBox);
-        looseMsg = new Text("GAME OVER");
-        looseMsg.setFont(new Font(20));
+        loseMsg = new Text("GAME OVER");
+        loseMsg.setFont(new Font(20));
         restartBttn = new Button("Restart game");
         restartBttn.setOnAction(event -> {
             new Menu(stage).show();
@@ -37,7 +37,7 @@ public class GameOver {
         vBox.setAlignment(Pos.CENTER);
         restartBttn.setStyle(STYLE);
         vBox.setPadding(new Insets(100, 21, 100, 21));
-        vBox.getChildren().addAll(looseMsg, restartBttn);
+        vBox.getChildren().addAll(loseMsg, restartBttn);
     }
 
     public void show() {
