@@ -1,4 +1,4 @@
-package com.proz.snake.model;
+package com.proz.snake;
 
 import com.proz.snake.view.Menu;
 import javafx.application.Application;
@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("snake");
-        primaryStage.setScene(new Menu(primaryStage).getScene());
+        new Menu(primaryStage).show();
         primaryStage.show();
     }
 }

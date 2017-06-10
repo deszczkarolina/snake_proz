@@ -18,24 +18,19 @@ import java.util.TimerTask;
 public class Game {
     public static final int BASEBOARDWIDTH = 10;
     public static final int BASEBOARDHEIGHT = 10;
-
     private Field fruit;
     private Snake snake;
     private boolean shouldElongate;
     private Direction currentDirection;
     private Direction newDirection;
-
     private Timer logicTimer;
     private AnimationTimer animationTimer;
     private TimerTask timerTask;
-
     private Board board;
     private int width;
     private int height;
     private Stage stage;
     private Scene scene;
-
-
     private boolean gameEnd = false;
 
     public Game(Stage stage, int size) {
@@ -61,15 +56,7 @@ public class Game {
                 currentDirection = newDirection;
                 boolean isBitten = snake.move(currentDirection, shouldElongate);
                 if (isBitten || isBoardCollision()) {
-                    logicTimer.cancel();
-                    Platform.runLater(() -> {
-                        GameOver lost = new GameOver(stage);
-                        // gameEnd = true;
-                        //  Alert a = new Alert(Alert.AlertType.WARNING);
-                        // a.setHeaderText("UPS");
-                        // a.setContentText("GAME OVER");
-                        // a.showAndWait();
-                    });
+                    gameOver();
                 }
                 if (shouldElongate) {
                     shouldElongate = false;
@@ -83,7 +70,6 @@ public class Game {
         };
 
         logicTimer.scheduleAtFixedRate(timerTask, 0, 150);
-
 
         animationTimer = new AnimationTimer() {
             @Override
@@ -123,8 +109,20 @@ public class Game {
                     }
                     newDirection = Direction.RIGHT;
                     break;
-
             }
+        });
+    }
+
+    private void gameOver() {
+        logicTimer.cancel();
+        animationTimer.stop();
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Platform.runLater(() -> {
+            new GameOver(stage).show();
         });
     }
 
@@ -144,7 +142,5 @@ public class Game {
         fruit.setX(fruitX);
         fruit.setY(fruitY);
     }
-
-
 }
 
