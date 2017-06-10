@@ -2,3 +2,4 @@
 out
 *.iml
 
+!/src/com/proz/snake/model/Field.java

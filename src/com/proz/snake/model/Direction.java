@@ -1,7 +1,6 @@
 package com.proz.snake.model;
 
-public enum Direction
-{
+public enum Direction {
     UP,
     DOWN,
     LEFT,

@@ -1,11 +1,10 @@
 package com.proz.snake.model;
 
-public class Field
-{
+public class Field {
     private int x;
     private int y;
 
-    public Field (int x, int y) {
+    public Field(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -14,13 +13,17 @@ public class Field
         return x;
     }
 
-    public void setX(int x) {this.x = x;}
+    public void setX(int x) {
+        this.x = x;
+    }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) { this.y = y; }
+    public void setY(int y) {
+        this.y = y;
+    }
 
     @Override
     public boolean equals(Object o) {
