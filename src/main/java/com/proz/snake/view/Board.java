@@ -30,7 +30,7 @@ public class Board extends Canvas {
         });
     }
 
-    public void drawApple(int x, int y) {
+    public void drawApple(final int x, int y) {
         GraphicsContext ctx = getGraphicsContext2D();
         ctx.setFill(Color.GREEN);
         ctx.setStroke(Color.WHITE);

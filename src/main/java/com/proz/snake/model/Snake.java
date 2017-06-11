@@ -14,6 +14,16 @@ public class Snake {
         snakeHead = snakeBody.getFirst();
     }
 
+    public Snake(Snake other) {
+        snakeBody = new LinkedList<>(other.getSnakeBody());
+        for (int i = 0; i < other.getSnakeBody().size(); i++) {
+            snakeBody.add(new Field(other.getSnakeBody().get(i)));
+        }
+        snakeHead = new Field(other.getSnakeHead());
+
+    }
+
+
     public boolean move(Direction direction, boolean shouldElongate) {
         snakeHead = snakeBody.getFirst();
         Field newHead = snakeHead;

@@ -1,6 +1,6 @@
 package com.proz.snake.view;
 
-import com.proz.snake.controller.Game;
+import com.proz.snake.controller.GameController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -44,11 +44,11 @@ public class Menu {
         startBttn.setOnAction(event -> {
             String newValue = (String) boardSize.getSelectionModel().selectedItemProperty().get();
             if (newValue.equals("small")) {
-                new Game(stage, 1);
+                new GameController(stage, 1);
             } else if (newValue.equals("medium") || newValue.isEmpty()) {
-                new Game(stage, 2);
+                new GameController(stage, 2);
             } else if (newValue.equals("large")) {
-                new Game(stage, 3);
+                new GameController(stage, 3);
             }
 
         });

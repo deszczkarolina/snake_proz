@@ -9,6 +9,12 @@ public class Field {
         this.y = y;
     }
 
+    public Field(Field other) {
+        this.x = other.getX();
+        this.y = other.getY();
+    }
+
+
     public int getX() {
         return x;
     }
