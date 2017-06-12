@@ -56,7 +56,7 @@ public class Menu {
         startBttn.setStyle(STYLE);
         vBox.setSpacing(20);
         vBox.setAlignment(Pos.CENTER);
-        vBox.setPadding(new Insets(100, 40, 78, 40));
+        vBox.setPadding(new Insets(100, 40, 95, 40));
         vBox.getChildren().addAll(startBttn, chooseSize, boardSize);
     }
 

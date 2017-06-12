@@ -44,13 +44,14 @@ public class GameModel {
                 currentDirection = newDirection;
                 boolean isBitten = snake.move(currentDirection, shouldElongate);
                 if (isBitten || isBoardCollision()) {
+                    gameEnd = true;
                     gameControllerInterface.gameOver();
                 }
                 if (shouldElongate) {
                     shouldElongate = false;
                 }
 
-                if (snake.getSnakeHead().getX() == fruit.getX() && snake.getSnakeHead().getY() == fruit.getY()) {
+                if (snake.getHead().getX() == fruit.getX() && snake.getHead().getY() == fruit.getY()) {
                     shouldElongate = true;
                     generateFruit();
                 }
@@ -58,15 +59,12 @@ public class GameModel {
         };
 
         logicTimer.scheduleAtFixedRate(timerTask, 0, 150);
-
-
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long delta) {
                 gameControllerInterface.refreshScene();
             }
         };
-
         animationTimer.start();
     }
 
@@ -105,7 +103,7 @@ public class GameModel {
     }
 
     public boolean isBoardCollision() {
-        Field head = snake.getSnakeHead();
+        Field head = snake.getHead();
         return (head.getX() < 0 || head.getX() == width || head.getY() < 0 || head.getY() == height);
     }
 
@@ -139,6 +137,14 @@ public class GameModel {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getScore() {
+        return snake.getLength() - 3;
+    }
+
+    public GameControllerInterface getInterface() {
+        return this.gameControllerInterface;
     }
 }
 

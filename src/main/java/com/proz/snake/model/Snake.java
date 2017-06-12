@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Snake {
     private LinkedList<Field> snakeBody;
     private Field snakeHead;
+    private int length;
 
     public Snake(int x, int y, int size) {
         snakeBody = new LinkedList<>();
@@ -12,6 +13,7 @@ public class Snake {
             snakeBody.add(new Field(x, y + i));
         }
         snakeHead = snakeBody.getFirst();
+        length = size;
     }
 
     public Snake(Snake other) {
@@ -19,7 +21,8 @@ public class Snake {
         for (int i = 0; i < other.getSnakeBody().size(); i++) {
             snakeBody.add(new Field(other.getSnakeBody().get(i)));
         }
-        snakeHead = new Field(other.getSnakeHead());
+        snakeHead = new Field(other.getHead());
+        length = other.length;
 
     }
 
@@ -42,6 +45,7 @@ public class Snake {
                 break;
         }
         if (!shouldElongate) snakeBody.removeLast();
+        else length++;
         if (snakeBody.contains(newHead)) {
             return true;
         }
@@ -58,8 +62,11 @@ public class Snake {
         return new LinkedList<>(snakeBody);
     }
 
-    public Field getSnakeHead() {
+    public Field getHead() {
         return snakeBody.getFirst();
     }
 
+    public int getLength() {
+        return length;
+    }
 }
