@@ -51,7 +51,6 @@ public class GameTest {
     public void testBoardCollision() {
         for (int i = 0; i <= 4; i++) {
             game.getSnake().move(Direction.RIGHT, false);
-            System.out.println(game.getSnake().getHead().getX());
         }
         assertTrue(game.isBoardCollision());
     }
